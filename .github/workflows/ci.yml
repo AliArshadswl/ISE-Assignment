@@ -1,0 +1,24 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Choose your Python version
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt  # If you have a requirements.txt file
+
+      # Add steps to run tests here
+      # For machine learning tests, this might involve running your model on test data and checking accuracy or other metrics.
